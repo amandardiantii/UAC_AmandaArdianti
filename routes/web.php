@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('/home');
 });
-Route::get('/user', function () {
-    return view('user.profile');
-});
 
 Route::get('/register', [LoginController::class, 'view']);
 Route::post('/register', [LoginController::class, 'storeRegister']);
@@ -30,15 +27,15 @@ Route::get('/login', function () {
 Route::post('/login', [LoginController::class, 'storeLogin']);
 
 
-// Route::get('/user', function(){
-//     return view('user.home');
-// })->middleware('UserCheck');
-// Route::group(['prefix' => 'user', 'middleware' => 'UserCheck'], function(){
-//     Route::get('/', function(){
-//         return view('user.home');
-//     });
-//     Route::get('/profile', [UserController::class, 'viewProfile']);
-//     Route::post('/like', [LikeController::class, 'like']);
-//     Route::post('/dislike', [LikeController::class, 'dislike']);
-// });
+Route::get('/user', function(){
+    return view('user.home');
+})->middleware('UserCheck');
+Route::group(['prefix' => 'user', 'middleware' => 'UserCheck'], function(){
+    Route::get('/', function(){
+        return view('user.home');
+    });
+    Route::get('/profile', [UserController::class, 'viewProfile']);
+    Route::post('/like', [LikeController::class, 'like']);
+    Route::post('/dislike', [LikeController::class, 'dislike']);
+});
 
