@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Hobby;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Hobby::create([
+            'name' => 'Reading'
+        ]);
+        Hobby::create([
+            'name' => 'Travelling'
+        ]);
+        Hobby::create([
+            'name' => 'Gardening'
+        ]);
+        Hobby::create([
+            'name' => 'Cooking'
+        ]);
+        Hobby::create([
+            'name' => 'Painting'
+        ]);
     }
 }

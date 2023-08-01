@@ -42,4 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function hobbies()
+    {
+        return $this->belongsToMany(Hobby::class, 'user_hobbies', 'user_id', 'hobby_id');
+    }
+
+    public function like(){
+        return $this->hasMany(Like::class);
+    }
 }
